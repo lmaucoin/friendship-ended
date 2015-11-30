@@ -1,5 +1,5 @@
 <?php
-include getcwd().'vendor/ptcong/php-image-uploader/ChipVN/ClassLoader/Loader.php';
+include getcwd().'/vendor/ptcong/php-image-uploader/ChipVN/ClassLoader/Loader.php';
 ChipVN_ClassLoader_Loader::registerAutoLoad();
 $uploader = ChipVN_ImageUploader_Manager::make('Imgur');
 $uploader->setApi('959b5e4667b3d62');
