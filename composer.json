@@ -2,7 +2,8 @@
     "name": "lmaucoin/friendship-ended",
     "description": "You need ImageMagick for this dumb crap.",
     "require": {
-        "ext-imagick": "*"
+        "ext-imagick": "*",
+	"ext-oauth": "*"
     },
     "authors": [
         {
