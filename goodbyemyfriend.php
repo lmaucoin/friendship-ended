@@ -45,7 +45,7 @@ if(empty($errorz)) {
   unlink($new_friend_pic);
   unlink($old_friend_pic_1);
   unlink($old_friend_pic_2); 
-  unlink($output_filename);
+//  unlink($output_filename);
 ?>
 <head>
     <meta charset="utf-8">
