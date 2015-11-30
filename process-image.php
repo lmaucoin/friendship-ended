@@ -94,6 +94,7 @@ $canvas->writeImage($output_filename);
 $target_url = "http://uploads.im/api";
 $file_name_with_full_path = realpath('./' . $output_filename);
 $post = array('upload'=>'@'.$file_name_with_full_path,'format'=>'json');
+print_r($post);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$target_url);
 curl_setopt($ch, CURLOPT_POST,1);
