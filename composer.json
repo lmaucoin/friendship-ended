@@ -3,7 +3,10 @@
     "description": "You need ImageMagick for this dumb crap.",
     "require": {
         "ext-imagick": "*",
-	"ext-oauth": "*"
+	"ext-oauth": "*",
+	"ptcong/php-image-uploader": "dev-master",
+	        "ptcong/php-http-class": "2.x-dev",
+	        "ptcong/php-cache-manager": "dev-master"
     },
     "authors": [
         {

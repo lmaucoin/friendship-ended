@@ -4,13 +4,152 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd88891cc04eeb7f960701c33a1a2bc3",
-    "content-hash": "763e2135e1727b0afaa05dacc06a657e",
-    "packages": [],
+    "hash": "2e90ce02e1bc9d425b7849fc29353bc1",
+    "content-hash": "45f7223a11381b251aeb6b26a2457031",
+    "packages": [
+        {
+            "name": "ptcong/php-cache-manager",
+            "version": "dev-master",
+            "target-dir": "ChipVN/Cache",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ptcong/php-cache-manager.git",
+                "reference": "2ddeaaab4c38be4a970566e27f09693a1f3743f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ptcong/php-cache-manager/zipball/2ddeaaab4c38be4a970566e27f09693a1f3743f8",
+                "reference": "2ddeaaab4c38be4a970566e27f09693a1f3743f8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ChipVN_": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phan Thanh Cong",
+                    "email": "ptcong90@gmail.com",
+                    "homepage": "http://ptcong.com"
+                }
+            ],
+            "description": "A Cache Manager library.",
+            "keywords": [
+                "cache",
+                "cache-library",
+                "cache-manager"
+            ],
+            "time": "2015-05-29 05:13:46"
+        },
+        {
+            "name": "ptcong/php-http-class",
+            "version": "2.x-dev",
+            "target-dir": "ChipVN/Http",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ptcong/php-http-client.git",
+                "reference": "e205b4bc0ce443c5d6d522c50345bd78d628ba53"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ptcong/php-http-client/zipball/e205b4bc0ce443c5d6d522c50345bd78d628ba53",
+                "reference": "e205b4bc0ce443c5d6d522c50345bd78d628ba53",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ChipVN_": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phan Thanh Cong",
+                    "email": "ptcong90@gmail.com",
+                    "homepage": "http://ptcong.com"
+                }
+            ],
+            "description": "A simple and powerful Http Client class used to sending request and get response like a browser.",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "php",
+                "request"
+            ],
+            "time": "2015-06-15 15:22:33"
+        },
+        {
+            "name": "ptcong/php-image-uploader",
+            "version": "dev-master",
+            "target-dir": "ChipVN/ImageUploader",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ptcong/php-remote-image-uploader.git",
+                "reference": "d832de7e589622b7dd4a43d3906be7ec6b529f92"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ptcong/php-remote-image-uploader/zipball/d832de7e589622b7dd4a43d3906be7ec6b529f92",
+                "reference": "d832de7e589622b7dd4a43d3906be7ec6b529f92",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0",
+                "ptcong/php-cache-manager": "dev-master",
+                "ptcong/php-http-class": "2.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ChipVN_": "/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Phan Thanh Cong",
+                    "email": "ptcong90@gmail.com",
+                    "homepage": "http://ptcong.com"
+                }
+            ],
+            "description": "Library for uploading image to picasa, imageshack, imgur, etc...",
+            "keywords": [
+                "http",
+                "image-uploader",
+                "php",
+                "remote-upload"
+            ],
+            "time": "2015-09-14 14:21:49"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ptcong/php-image-uploader": 20,
+        "ptcong/php-http-class": 20,
+        "ptcong/php-cache-manager": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
