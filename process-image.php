@@ -93,7 +93,7 @@ $canvas->writeImage($output_filename);
 
 $target_url = "http://uploads.im/api";
 // $file_name_with_full_path = realpath('./' . $output_filename);
-$post = array('upload'=>'http://friendship.leigh.cool/' . $output_filename,'format'=>'json');
+$post = array('upload'=>'http://friendship.leigh.cool/' . $output_filename);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$target_url);
 curl_setopt($ch, CURLOPT_POST,1);
