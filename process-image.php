@@ -92,6 +92,7 @@ $canvas->writeImage($output_filename);
 */
 
 $target_url = "http://uploads.im/api";
+echo "<img src=\"{$output_filename}\" />";
 $file_name_with_full_path = realpath('./' . $output_filename);
 $post = array('upload'=>'@'.$file_name_with_full_path,'format'=>'json');
 print_r($post);
