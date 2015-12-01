@@ -6,5 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'ChipVN_' => array($vendorDir . '/ptcong/php-http-class', $vendorDir . '/ptcong/php-cache-manager', $vendorDir . '/ptcong/php-image-uploader'),
 );
