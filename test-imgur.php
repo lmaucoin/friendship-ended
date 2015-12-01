@@ -3,7 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 $imgur_app_id = $_ENV['IMGUR_APP_ID'];
 $imgur_endpoint = "https://api.imgur.com/3/image";
 // $file_name_with_full_path = realpath('./' . $output_filename);
-$post = array('image'=> '@'.('treasure.gif'));
+$post = array('image'=> '@treasure.gif', 'type' => 'file');
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,$imgur_endpoint);
 curl_setopt($ch, CURLOPT_POST,1);
