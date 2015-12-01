@@ -86,22 +86,4 @@ $output_time = time();
 $output_filename = 'tmp/'.time().".jpg";
 $canvas->writeImage($output_filename);
 
-/* 
-/* Here's like where you would post the image elsewhere. 
-/* http://uploads.im/apidocs is what I'm using but maybe you want something else
-*/
-
-$target_url = "http://uploads.im/api";
-$file_name_with_full_path = realpath('./' . $output_filename);
-$post = array('upload'=>'@'.$file_name_with_full_path,'format'=>'json');
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$target_url);
-curl_setopt($ch, CURLOPT_POST,1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$result=curl_exec($ch);
-$result_obj = json_decode($result);
-$remote_output = $result_obj->data;
-curl_close ($ch);
-
 ?>
