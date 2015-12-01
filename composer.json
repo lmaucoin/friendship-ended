@@ -1,0 +1,13 @@
+{
+    "name": "lmaucoin/friendship-ended",
+    "description": "You need ImageMagick for this dumb thing.",
+    "require": {
+        "ext-imagick": "*"
+    },
+    "authors": [
+        {
+            "name": "Leigh Aucoin",
+            "email": "lmaucoin@gmail.com"
+        }
+    ]
+}
