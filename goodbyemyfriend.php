@@ -41,7 +41,11 @@ if(sizeof($filez) == 3) {
 }
 
 if(empty($errorz)) {
+  // Process the image using ImageMagick
   include('process-image.php');
+  // Uploading to Imgur
+  include('imgur-upload.php');
+
   unlink($new_friend_pic);
   unlink($old_friend_pic_1);
   unlink($old_friend_pic_2); 
@@ -62,8 +66,8 @@ if(empty($errorz)) {
                 <h1>Bless Your New Friendship With <em><?php echo $old_friend_name; ?></em></h1>
               </div>
               <h2>YOUR FORTUNE AWAITS HERE ............</h2>
-              <a href="<?php echo $remote_output->img_view;?>" target="_blank"><img src="treasure.gif"></a>
-              <h3><a href="<?php echo $remote_output->img_view;?>" target="_blank"><?php echo $remote_output->img_url; ?></a></h3>
+              <a href="<?php echo $share_url; ?>" target="_blank"><img src="treasure.gif"></a>
+              <h3><a href="<?php echo $share_url; ?>" target="_blank"><?php echo $share_url; ?></a></h3>
               <br>
               <h4><em><a href="index.php">Do you have another new friend...........</a></em></h4>
           </div>
