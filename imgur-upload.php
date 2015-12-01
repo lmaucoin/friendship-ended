@@ -7,7 +7,7 @@ if($_SERVER['HTTP_HOST'] == 'localhost') { // Upload the file directly from your
 } else { // It's gonna at least temporarily exist on the webserver. This is probably a bad idea.
   if($_SERVER['HTTPS']) {$protocol = "https";}
   else {$protocol = "http";} // Whatever
-  $image_url = $protocol . "://" . $_SERVER['HTTP_HOST'] . $output_filename; // Temporary live URL here
+  $image_url = $protocol . "://" . $_SERVER['HTTP_HOST'] . "/" . $output_filename; // Temporary live URL here
   $post = array('image'=> $image_url, 'type' => 'URL');
 }
 $ch = curl_init();
