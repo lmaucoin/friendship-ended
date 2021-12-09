@@ -63,7 +63,7 @@ if(empty($errorz)) {
       <body>
           <div class="container">
               <div class="page-header">
-                <h1>Bless Your New Friendship With <em><?php echo $old_friend_name; ?></em></h1>
+                <h1>Bless Your New Friendship With <em><?php echo $new_friend_name; ?></em></h1>
               </div>
               <h2>YOUR FORTUNE AWAITS HERE ............</h2>
               <a href="<?php echo $share_url; ?>" target="_blank"><img src="treasure.gif"></a>
