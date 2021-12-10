@@ -1,89 +1,69 @@
 <?php // CREATE IMAGE
-/* Create a new imagick object */
-$im = new Imagick();
-$im->newPseudoImage(50, 120, "gradient:#CF4E09-#00B92C");
 
-// Text 1
-$draw = new ImagickDraw();
-$draw->pushPattern('gradient', 0, 0, 50, 120);
-$draw->composite(Imagick::COMPOSITE_OVER, 0, 0, 50, 120, $im);
-$draw->popPattern();
-$draw->setFillPatternURL('#gradient');
+require 'classes/TextImage.php';
 
-$draw->setFontSize(58);
-$draw->setFontWeight(800);
-$draw->setStrokeColor('#006488');
-$draw->setStrokeWidth(1);
-$draw->scale(0.8,2);
-$draw->setStrokeAntialias(true);
-$draw->annotation(0, 40, "Friendship ended with " . $old_friend_name); // Swap SODACAT with variable from post
+$topText = new TextImage([
+  'text' => "Friendship ended with {$old_friend_name}",
+  'fontSize' => 58,
+  'position' => [0,40],
+  'gradient' => '#CF4E09-#00B92C',
+  'scale' => [0.8, 2]
+]);
 
-// Text 2
-$draw2 = new ImagickDraw();
-$draw2->setFontSize(38);
-$draw2->setFillColor('#DF0676');
-$draw2->setFontWeight(800);
-$draw2->setStrokeColor('#006488');
-$draw2->setStrokeWidth(1);
-$draw2->setStrokeAntialias(true);
-$draw2->scale(1,2);
-$draw2->annotation(300, 70, "Now");
+$nowText = new TextImage([
+  'text' => "Now",
+  'position' => [300,70],
+  'color' => '#DF0676'
+]);
 
-// Text 5
-$draw3 = new ImagickDraw();
-$draw3->setFontSize(38);
-$draw3->setStrokeAntialias(true);
-$draw3->setFillColor('#AB5955');
-$draw3->setFontWeight(800);
-$draw3->setStrokeColor('#006488');
-$draw3->setStrokeWidth(1);
-$draw3->scale(1,2);
-$draw3->annotation(300, 110, $new_friend_name); // Swap KIMMY with variable from post
+$newFriendText = new TextImage([
+  'text' => $new_friend_name,
+  'position' => [300, 110],
+  'color' => '#AB5955'
+]);
 
-// Text 4
-$draw4 = new ImagickDraw();
-$draw4->setFontSize(38);
-$draw4->setStrokeAntialias(true);
-$draw4->setFillColor('#7C9535');
-$draw4->setFontWeight(800);
-$draw4->setStrokeColor('#006488');
-$draw4->setStrokeWidth(1);
-$draw4->scale(1,2);
-$draw4->annotation(300, 150, "is my");
+$isMyText = new TextImage([
+  'text' => "is my",
+  'position' => [300, 150],
+  'color' => '#7C9535'
+]);
 
-$draw5 = new ImagickDraw();
-$draw5->setFontSize(38);
-$draw5->setStrokeAntialias(true);
-$draw5->setFillColor('#4CBF1F');
-$draw5->setFontWeight(800);
-$draw5->setStrokeColor('#006488');
-$draw5->setStrokeWidth(1);
-$draw5->scale(1,2);
-$draw5->annotation(300, 185, "best friend");
+$bestFriendText = new TextImage([
+  'text' => "best friend",
+  'position' => [300, 185],
+  'color' => '#4CBF1F'
+]);
 
-$canvas = new Imagick($new_friend_pic); // swap w/ image from post
-$canvas->resizeImage(800,600,Imagick::FILTER_LANCZOS,1);
-$soda1 = new Imagick($old_friend_pic_1); // swap w/ image from post
-$soda1->resizeImage(172,259,Imagick::FILTER_LANCZOS,1);
-$x1 = new Imagick('x1.png'); // swap w/ image from post
-$soda1->compositeImage($x1,\Imagick::COMPOSITE_ATOP, 0, 0);
-$soda2 = new Imagick($old_friend_pic_2); // swap w/ image from post
-$soda2->resizeImage(221,242,Imagick::FILTER_LANCZOS,1);
+$newFriendPic = new Imagick($new_friend_pic); // swap w/ image from post
+$newFriendPic->resizeImage(800,600,Imagick::FILTER_LANCZOS,1);
 
+$oldFriendPic1 = new Imagick($old_friend_pic_1); // swap w/ image from post
+$oldFriendPic1->resizeImage(172,259,Imagick::FILTER_LANCZOS,1);
+$x1 = new Imagick('x1.png');
+$oldFriendPic1->compositeImage($x1,\Imagick::COMPOSITE_ATOP, 0, 0);
+
+$oldFriendPic2 = new Imagick($old_friend_pic_2); // swap w/ image from post
+$oldFriendPic2->resizeImage(221,242,Imagick::FILTER_LANCZOS,1);
 $x2 = new Imagick('x2.png');
-$soda2->compositeImage($x2,\Imagick::COMPOSITE_ATOP, 0, 0);
+$oldFriendPic2->compositeImage($x2,\Imagick::COMPOSITE_ATOP, 0, 0);
 
-$canvas->drawImage($draw);
-$canvas->drawImage($draw2);
-$canvas->drawImage($draw3);
-$canvas->drawImage($draw4);
-$canvas->drawImage($draw5);
-$canvas->compositeImage($soda1,\Imagick::COMPOSITE_ATOP, 0, 341);
-$canvas->compositeImage($soda2,\Imagick::COMPOSITE_ATOP, 579, 358);
+$texts = [
+  $topText,
+  $nowText,
+  $newFriendText,
+  $isMyText,
+  $bestFriendText
+];
 
-$canvas->setImageFormat('jpg');
+foreach( $texts as $text ) { $newFriendPic->drawImage($text); }
+
+$newFriendPic->compositeImage($oldFriendPic1,\Imagick::COMPOSITE_ATOP, 0, 341);
+$newFriendPic->compositeImage($oldFriendPic2,\Imagick::COMPOSITE_ATOP, 579, 358);
+
+$newFriendPic->setImageFormat('jpg');
 $output_time = time();
 $output_filename = 'tmp/'.time().".jpg";
-$canvas->writeImage($output_filename);
+
+$newFriendPic->writeImage($output_filename);
 
 ?>
