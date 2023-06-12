@@ -43,13 +43,10 @@ if(sizeof($filez) == 3) {
 if(empty($errorz)) {
   // Process the image using ImageMagick
   include('process-image.php');
-  // Uploading to Imgur
-  include('imgur-upload.php');
 
   unlink($new_friend_pic);
   unlink($old_friend_pic_1);
-  unlink($old_friend_pic_2); 
-  unlink($output_filename);
+  unlink($old_friend_pic_2);
 ?>
 <head>
     <meta charset="utf-8">
@@ -65,9 +62,8 @@ if(empty($errorz)) {
               <div class="page-header">
                 <h1>Bless Your New Friendship With <em><?php echo $new_friend_name; ?></em></h1>
               </div>
-              <h2>YOUR FORTUNE AWAITS HERE ............</h2>
-              <a href="<?php echo $share_url; ?>" target="_blank"><img src="treasure.gif"></a>
-              <h3><a href="<?php echo $share_url; ?>" target="_blank"><?php echo $share_url; ?></a></h3>
+              <img src="data:image/jpg;base64,<?php echo base64_encode($imageBlob); ?>" class="friendship">
+              <img src="treasure.gif">
               <br>
               <h4><em><a href="index.php">Do you have another new friend...........</a></em></h4>
           </div>

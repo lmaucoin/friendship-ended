@@ -61,9 +61,7 @@ $newFriendPic->compositeImage($oldFriendPic1,\Imagick::COMPOSITE_ATOP, 0, 341);
 $newFriendPic->compositeImage($oldFriendPic2,\Imagick::COMPOSITE_ATOP, 579, 358);
 
 $newFriendPic->setImageFormat('jpg');
-$output_time = time();
-$output_filename = 'tmp/'.time().".jpg";
 
-$newFriendPic->writeImage($output_filename);
+$imageBlob = $newFriendPic->getImageBlob();
 
 ?>
